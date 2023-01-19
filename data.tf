@@ -19,25 +19,27 @@ data "aws_ami" "new_ami" {
       name = "virtualization-type"
       values = ["hvm"]
     }
+}
 
-    # filter {
-    #   name = "root_device_name"
-    #   values = ["/dev/sda1"]
-    # }
-
-    # filter {
-    #     name = "root_device_type"
-    #     values = ["ebs"]
-    # }
-
-    # filter {
-    #   name = "image_type"
-    #   values = ["machine"]
-    # }
-
-    # filter {
-    #   name =  "platform_details"
-    #   values = ["Linux/UNIX"] 
-    # }
+data "aws_security_group" "security_id" {
+    filter {
+      name = "vpc-id"
+      values = [var.my_vpc]
+    }
+    filter {
+      name = "group-name"
+      values = ["my_sg_test"]
+    }
   
+}
+
+data "aws_subnet" "subnet_name" {
+    filter {
+      name = "vpc-id"
+      values = [var.my_vpc]
+    }
+    filter {
+      name = "subnet-id"
+      values = ["subnet-07ec79d828981a1f8"]
+    }
 }
