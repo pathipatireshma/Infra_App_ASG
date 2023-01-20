@@ -1,13 +1,13 @@
 data "aws_ami" "new_ami" {
     most_recent = true
-    owners = ["973714476881"]
+    owners = ["630037968134"]
     # state = "available"
 
 
 
     filter {
       name = "name"
-      values = ["Centos-*-DevOps-Practice"]
+      values = ["Test_AMI"]
     }
 
     filter {
