@@ -1,6 +1,9 @@
 variable "name" {
     type = string  
 }
+variable "asg_name" {
+    type = string
+}
 variable "instance_type" {
     type = string  
 }
@@ -139,4 +142,140 @@ variable "kernel_id" {
 variable "ram_disk_id" {
     type        = string
     default     = null
+}
+variable "availability_zones" {
+    type        = list(string)
+    default     = null
+}
+
+variable "vpc_zone_identifier" {
+    type        = list(string)
+    default     = null
+}
+
+variable "min_size" {
+    type        = number
+    default     = null
+}
+
+variable "max_size" {
+    type        = number
+    default     = null
+}
+
+variable "desired_capacity" {
+    type        = number
+    default     = null
+}
+
+variable "capacity_rebalance" {
+    type        = bool
+    default     = null
+}
+variable "min_elb_capacity" {
+    type        = number
+    default     = null
+}
+
+variable "wait_for_elb_capacity" {
+    type        = number
+    default     = null
+}
+
+variable "wait_for_capacity_timeout" {
+    type        = string
+    default     = null
+}
+
+variable "default_cooldown" {
+    type        = number
+    default     = null
+}
+
+variable "default_instance_warmup" {
+    type        = number
+    default     = null
+}
+
+variable "protect_from_scale_in" {
+    type        = bool
+    default     = false
+}
+
+variable "load_balancers" {
+    type        = list(string)
+    default     = []
+}
+
+variable "target_group_arns" {
+    type        = list(string)
+    default     = []
+}
+
+variable "placement_group" {
+    type        = string
+    default     = null
+}
+
+variable "health_check_type" {
+    type        = string
+    default     = null
+}
+variable "health_check_grace_period" {
+    type        = number
+    default     = null
+}
+
+variable "force_delete" {
+    type        = bool
+    default     = null
+}
+
+variable "termination_policies" {
+    type        = list(string)
+    default     = []
+}
+
+variable "suspended_processes" {
+    type        = list(string)
+    default     = []
+}
+
+variable "max_instance_lifetime" {
+    type        = number
+    default     = null
+}
+
+variable "enabled_metrics" {
+    type        = list(string)
+    default     = []
+}
+
+variable "metrics_granularity" {
+    type        = string
+    default     = null
+}
+
+variable "service_linked_role_arn" {
+    type        = string
+    default     = null
+}
+variable "initial_lifecycle_hook" {
+    type        = list(map(string))
+    default     = []
+}
+
+variable "instance_refresh" {
+    type        = any
+    default     = {}
+}
+variable "mixed_instances_policy" {
+    type        = any
+    default     = null
+}
+variable "warm_pool" {
+    type = any  
+}
+variable "delete_timeout" {
+    type = string  
 }
